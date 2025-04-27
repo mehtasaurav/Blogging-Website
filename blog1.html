@@ -1,0 +1,150 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="edge">
+		<meta name="viewport" content="width=device-width,initial-scale=1.0">
+		<meta name="description" content="How Internet Works">
+		<meta name="keywords" content="Internet, Blog, Working of Internet">
+		<meta name="author" content="Saurav Mehta">
+		<title>VPNs 101: A Beginner's Guide to Online Privacy</title>
+		<link rel="stylesheet" href="./css/blog1.css">
+		<link rel="stylesheet" href="./css/utility.css">
+		<link rel="icon" href="./resources/trademark.png">
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="navigations">
+				<div class="left">
+				<div class="iconImage">
+					<img src="./resources/trademark.png" width="100%" height="100%">&nbsp;
+				</div>
+				<div class="headingName">
+					<h1 class="heading">Logger</h1>
+				</div>
+				</div>
+				<div class="right">
+					<input class="form-input" type="text" placeholder="Search Articles....">
+					<button class="btn">Search</button>
+				</div>
+			</div>
+
+			<hr style="height: 0.1px; margin-bottom:40px">
+
+			<div class="header max-width m-margins">	
+				<div class="title">
+					<h1 style="font-size: xxx-large; margin: 0 0;">VPNs 101: A Beginner's Guide to Online Privacy</h1>
+					<!-- <hr style="height: 0.1px;"> -->
+				</div>
+
+				<div class="author">
+					<img style="border-radius:40px" src="./resources/mehta.png" width="5%" height="5%">&nbsp;
+					<h3> Saurav Mehta </h3>
+				</div>
+
+			</div>
+
+			<div class="content max-width m-margins">
+
+				<p>The field of computer organization and architecture is one of the fastest-growing areas in technology. Its increasing complexity spans multiple domains, often requiring a lifetime of study to fully master.</p>
+
+				<p>To simplify this vast field, I categorize it into three main components based on their functions:</p>
+
+				<ul>
+				  <li>Processing</li>
+				  <li>Storage</li>
+				  <li>Networking</li>
+				</ul>
+
+				<p>While each of these areas is deep enough to earn multiple PhDs, my goal with this series is to explore and share insights into these fascinating topics. As this is my first blog post, I want to clarify that I am not yet an expert in any of these domains. However, I believe that sharing knowledge and perspectives fosters a valuable environment for learning and discussion.</p>
+
+				<p>To kick things off, I'll dive into an essential topic within networking: Virtual Private Networks (VPNs).</p>
+
+				<h2>1. What is a VPN?</h2>
+
+				<p>A VPN (Virtual Private Network) is a technology that creates a secure, encrypted connection over the internet, allowing users to transmit data privately and securely by masking their IP address and hiding their online location.</p>
+
+				<p>Before we discuss how a VPN works, it's essential to understand the fundamental concept of how the modern internet operates.</p>
+
+				<h2>2. The Client-Server Architecture</h2>
+
+				<p>For simplicity, this blog will focus on the client-server architecture, although the principles apply to other architectures, such as peer-to-peer (P2P).</p>
+
+				<img src="https://miro.medium.com/v2/resize:fit:4800/format:webp/1*-C4dZP9-AJiM7Fl8zL9tmg.jpeg" style="width: 400px" alt="client-server diagram">
+				<p>In the client-server architecture, all activities on our device involve a server. Here, we act as clients seeking information, while the server provides that information. Servers not only deliver information but also store our IP addresses for geolocation-based content sharing.</p>
+
+				<p>When data packets leave our Network Interface Card (NIC), they contain both the sender's IP and a port, as well as the receiver's IP and a port in the header, along with the data itself.</p>
+
+				<p>These data packets are routed through multiple routers, which use a process called Network Address Translation (NAT) to translate private IP addresses into public IP addresses. (Please note that NAT and routing are beyond the scope of this topic.)</p>
+
+				<p>When our data packets reach the server, the server extracts the data, retrieves the sender's IP address, and sends the information back to the sender's IP address, effectively completing the communication cycle.</p>
+
+				<h2>3. The Problem</h2>
+
+				<p>The issue with this approach is the middlemen who monitor our data packets and activities, logging them in their systems. Unfortunately, governments have substantial control over these middlemen: the Internet Service Providers (ISPs). All of your data packets must route through ISP servers, giving them the ability to observe your activity.</p>
+
+				<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*HjQchBrYG4bzDM4QBucH6w.jpeg" style="width: 400px" alt="Diagram of a normal working network">
+
+
+				<p>Furthermore, the server that serves you information also records your data and IP address for geo-location purposes. Thanks to intergovernmental policies, this data can be shared with your government or third parties.</p>
+
+				<h2>4. The Solution</h2>
+
+				<p>The solution is straightforward: use a VPN! A VPN consists of two parts: the VPN client and the VPN server. Most VPN providers have servers located in various countries around the world.</p>
+
+				<p>As we discussed earlier, ISPs act as middlemen between our devices and the server. However, the VPN client now serves as a middleman between us and the ISP — this is where the real change occurs.</p>
+
+				<p>Before your data leaves the NIC, it gets encrypted and wrapped into a new data packet created by the VPN client. This new data packet will have the VPN server's address as the receiver instead of the actual intended server, effectively acting as a proxy.</p>
+
+				
+								<img src="https://miro.medium.com/v2/resize:fit:1100/format:webp/1*oBmN3I8F_mkpD2WRmtCP5w.jpeg" style="width: 400px" alt="Working diagram of a VPN proxy">
+
+				<p>The VPN server then decrypts the data packet, retrieves the original data packet, and redirects the request to the intended server, all while ensuring no logs of your activity are stored.</p>
+
+				<h2>5. VPN Protocols</h2>
+
+				<p>VPN companies utilize various protocol algorithms to secure connections. These protocols define how data is transmitted securely between the VPN client and VPN server, establishing a protected communication channel known as a VPN tunnel. Some popular protocols include:</p>
+
+				<ul>
+				  <li><strong>OpenVPN</strong>: Highly secure and open-source, widely supported.</li>
+				  <li><strong>WireGuard</strong>: Known for its speed and lightweight design.</li>
+				  <li><strong>IKEv2/IPsec</strong>: Excellent for mobile devices due to its stability during network changes.</li>
+				</ul>
+
+				<p>Each protocol has its strengths, and many VPN providers allow users to choose one based on their needs.</p>
+
+				<h2>6. Conclusion</h2>
+
+				<p>With a VPN:</p>
+
+				<ul>
+				  <li>The server will never know your true geolocation.</li>
+				  <li>Your ISP will not have access to your search history or the websites you visit.</li>
+				  <li>Governments and third parties will remain unaware of your online activities.</li>
+				</ul>
+
+				<p>In summary, using a VPN is a critical step in maintaining your online privacy and security. Take time to explore reputable VPN providers, evaluate their features, and choose one that aligns with your privacy needs.</p>
+
+				<p>Stay tuned for more blog posts in this series as we dive deeper into computer organization and architecture!</p>
+
+			</div>
+			<hr style="height: 0.1px;">
+
+			<div class="footer max-width m-margins">
+				<div class="author-content">
+					<div class="author-image">
+						<img src="./resources/mehta.png" width="100%" height="100%">&nbsp;
+					</div>
+					<div class="author-about">
+						<h2>Written by Saurav Mehta</h2>
+					</div>
+				</div>
+				<div class="author-profile">
+					<button class="btn-profile">Profile</button>
+				</div>
+			</div>
+
+		</div>
+	</body>
+<html>
